@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pincode Checker</title>
+</head>
+
+<body style="font-family:Arial; background:#f2f2f2;">
+
+<div style="width:300px;margin:100px auto;padding:20px;background:white;text-align:center;border-radius:10px;">
+<h2>Pincode Checker</h2>
+
+<input type="text" id="pin" placeholder="Enter Pincode" style="padding:8px;width:90%;">
+<br><br>
+
+<button onclick="checkPin()">Check</button>
+
+<p id="result" style="font-size:18px;font-weight:bold;"></p>
+</div>
+
+<script>
+const blockPins = [
+"136027","364001","383001"
+];
+
+const negativePins = [
+"364505","475110","125047"
+];
+
+function checkPin(){
+  let pin = document.getElementById("pin").value.trim();
+  let r = document.getElementById("result");
+
+  if(blockPins.includes(pin)){
+    r.innerHTML = "❌ BLOCK PIN";
+    r.style.color = "red";
+  }
+  else if(negativePins.includes(pin)){
+    r.innerHTML = "⚠️ NEGATIVE PIN";
+    r.style.color = "orange";
+  }
+  else{
+    r.innerHTML = "✅ UNBLOCK PIN";
+    r.style.color = "green";
+  }
+}
+</script>
+
+</body>
+</html>
